@@ -1,0 +1,53 @@
+:root {
+    /* Colours */
+    --clr-primary-1: white;
+    --clr-primary-2: #121212;
+
+    /* Font families */
+    --ff-primary: 'Verdana', sans-serif;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    display: flex;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0 5vw;
+
+    background-color: var(--clr-primary-2);
+    color: var(--clr-primary-1);
+    font-family: var(--ff-primary)
+}
+
+.large-text {
+    font-size: 5vh;
+    font-weight: 700;
+}
+
+.center-container {
+    text-align: center;
+}
+
+.timetable {
+    border: 3px solid var(--clr-primary-1);
+    display: grid;
+    min-height: 100vh;
+    padding: 5px;
+    margin: 0 0 20px 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
