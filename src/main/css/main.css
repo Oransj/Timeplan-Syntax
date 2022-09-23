@@ -1,7 +1,7 @@
 :root {
     /* Colours */
-    --clr-primary-1: white;
-    --clr-primary-2: #121212;
+    --clr-primary-1: 256, 256, 256;
+    --clr-primary-2: 12, 12, 12;
 
     /* Font families */
     --ff-primary: 'Verdana', sans-serif;
@@ -21,9 +21,9 @@ body {
     margin: 0;
     padding: 0 5vw;
 
-    background-color: var(--clr-primary-2);
-    color: var(--clr-primary-1);
-    font-family: var(--ff-primary)
+    background-color: rgb(var(--clr-primary-2));
+    color: rgb(var(--clr-primary-1));
+    font-family: var(--ff-primary);
 }
 
 .large-text {
@@ -36,7 +36,7 @@ body {
 }
 
 .timetable {
-    border: 3px solid var(--clr-primary-1);
+    border: 3px solid rgb(var(--clr-primary-1));
     display: grid;
     min-height: 100vh;
     padding: 5px;
