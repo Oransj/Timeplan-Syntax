@@ -1,3 +1,6 @@
+/* TODO: Make pixel values responsive */
+
+/* VARIABLES */
 :root {
     /* Colours */
     --clr-primary-1: 256, 256, 256;
@@ -13,13 +16,15 @@
 
 html {
     display: flex;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 body {
     min-height: 100vh;
     width: 100vw;
     margin: 0;
-    padding: 0 5vw;
+    padding: 0 2vw 2vw 2vw;
 
     background-color: rgb(var(--clr-primary-2));
     color: rgb(var(--clr-primary-1));
@@ -36,25 +41,31 @@ body {
 }
 
 .timetable {
-    border: 3px solid rgb(var(--clr-primary-1));
+    border: 1px solid rgb(var(--clr-primary-1), 0.3);
     display: grid;
-    min-height: 100vh;
-    padding: 5px;
-    margin: 0 0 20px 0;
+    /* grid-template-columns: 1fr 10fr; */
+    grid-template-columns: min(60px, 10%);
+    padding: 0px;
+}
+
+.timetable-day {
+    padding: 0;
+    margin: 0;
+    grid-column:  2 / 3;
+    width: inherit;
 }
 
 .timetable-day__header {
-    border-bottom: 2px solid rgb(var(--clr-primary-1)); /* inherit */
-    height: 40px; /* TODO: Update to responsive design */
+    height: 40px;
     line-height: 40px;
     text-align: center;
-    background: rgb(var(--clr-primary-1), 0.5);
+    background: rgb(var(--clr-primary-1), 0.6);
     color: rgb(var(--clr-primary-2));
 }
 
-.timetable-day__header > li {
+.timetable-day__header li {
     height: 10px;
-    border-left: 2px solid #eaedee;
+    border-left: 2px solid rgb(var(--clr-primary-1));
 }
 
 ul {
@@ -64,4 +75,36 @@ ul {
 
 li {
     list-style: none;
+}
+
+.timetable__list--time {
+    grid-column: 1 / 2;
+    padding-left: 10px;
+}
+
+.timetable__list--time li {
+    height: 40px;
+    line-height: 1;
+    text-align: left;
+    margin-bottom: 0;
+    position: relative;
+    padding-left: 10px;
+}
+
+ul.timetable__list--time li:not(:first-child):before,
+ul.timetable__list--time li:not(:first-child):after {
+    content: '';
+    position: absolute;
+    border-bottom: 2px solid rgb(var(--clr-primary-1), 0.6);
+    right: 0;
+}
+
+ul.timetable__list--time li:not(:first-child):before {
+    top: 19px;
+    width: 4px;
+}
+
+ul.timetable__list--time li:not(:first-child):after {
+    top: -2px;
+    width: 8px;
 }
