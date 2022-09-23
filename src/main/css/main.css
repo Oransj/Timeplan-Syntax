@@ -43,6 +43,15 @@ body {
     margin: 0 0 20px 0;
 }
 
+.timetable-day__header {
+    border-bottom: 2px solid rgb(var(--clr-primary-1)); /* inherit */
+    height: 40px; /* TODO: Update to responsive design */
+    line-height: 40px;
+    text-align: center;
+    background: rgb(var(--clr-primary-1), 0.5);
+    color: rgb(var(--clr-primary-2));
+}
+
 ul {
     padding: 0;
     margin: 0;
