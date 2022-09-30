@@ -9,13 +9,9 @@
     /* Font families */
     --ff-primary: 'Verdana', sans-serif;
 
-    /* Font sizes */
-    --fs-small: 16px;
-    --fs-medium: 20px;
-    --fs-large: 24px;
-
     /* Size values */
-    --cell-height: 8vh;
+    --row-height: 2vh;
+    --cell-height: calc(4 * var(--row-height));
 }
 
 *, *:before, *:after {
@@ -24,10 +20,9 @@
 
 html {
     display: flex;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
 }
 
+/* Keep bottom margin */
 h2 {
     margin: 0 0 1vw 0;
 }
@@ -52,31 +47,6 @@ body {
     text-align: center;
 }
 
-.timetable {
-    border: 1px solid rgb(var(--clr-primary-1), 0.3);
-    display: grid;
-    grid-template-columns: min(60px, 10%);
-    padding: 0px;
-}
-
-.timetable-day {
-    grid-column:  2 / 3;
-    width: inherit;
-}
-
-.timetable-day__header {
-    height: var(--cell-height);
-    line-height: var(--cell-height);
-    text-align: center;
-    background: rgb(var(--clr-primary-1), 0.6);
-    color: rgb(var(--clr-primary-2));
-}
-
-.timetable-day__header li {
-    height: 10px;
-    border-left: 2px solid rgb(var(--clr-primary-1));
-}
-
 ul {
     padding: 0;
     margin: 0;
@@ -86,8 +56,29 @@ li {
     list-style: none;
 }
 
+.timetable {
+    border: 1px solid rgb(var(--clr-primary-1), 0.3);
+    display: grid;
+    grid-template-columns: 60px;
+    grid-template-rows: repeat(44, 1fr);
+}
+
+/* TODO: When body width < 180 px: remove sidebar times */
+
+.timetable-day__header {
+    height: var(--cell-height);
+    grid-column:  2 / 3;
+    grid-row: 1 / 5;
+
+    line-height: var(--cell-height);
+    text-align: center;
+    background: rgb(var(--clr-primary-1), 0.7);
+    color: rgb(var(--clr-primary-2));
+}
+
 .timetable__list--time {
     grid-column: 1 / 2;
+    grid-row: 1 / 45;
     padding-left: 10px;
 }
 
@@ -109,11 +100,41 @@ ul.timetable__list--time li:not(:first-child):after {
 }
 
 ul.timetable__list--time li:not(:first-child):before {
-    top: calc(((var(--cell-height)/2)) - 1px); /* OG: 19px */
+    top: calc(var(--cell-height) / 2 + 2px); /* OG: 19px */
     width: 4px;
 }
 
 ul.timetable__list--time li:not(:first-child):after {
-    top: -2px; /* OG: -2px */
+    top: 2px; /* OG: -2px */
     width: 8px;
+}
+
+.timetable-day--background {
+    height: calc(10 * var(--cell-height));
+    background: rgb(var(--clr-primary-1), 0);
+    overflow: hidden;
+    grid-column: 2 / 3;
+    grid-row: 5 / 45;
+    z-index: 0;
+}
+
+.timetable-day--background > li {
+    height: calc(var(--cell-height) / 4);
+}
+
+.timetable-day--background > li:nth-child(even) {
+    background: rgb(var(--clr-primary-1), 0.05);
+}
+
+/* Testing. Style should be set with JS */
+.timetable-day__event {
+    height: calc(7 * var(--row-height));
+    background: darkslategray; /* Array of colours. Assign array of subjects (alphabetical, asc) to the colours */
+    grid-column: 2 / 3;
+    z-index: 1;
+    border-radius: 1vw;
+    padding: 1vw;
+    overflow: hidden;
+    font-size: 0.75em;
+}
 }
