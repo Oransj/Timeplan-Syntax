@@ -7,6 +7,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.stream.Stream;
 
 public class JsonImporter {
 
@@ -28,6 +29,8 @@ public class JsonImporter {
     public JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
         try (InputStream urlStream = new URL(url).openStream()) {
             BufferedReader jsonReader = new BufferedReader(new InputStreamReader(urlStream, StandardCharsets.UTF_8));
+            Stream<String> stream = jsonReader.lines();
+            stream.forEach(System.out::println);
             String jsonText = readAll(jsonReader);
             return new JSONObject(jsonText);
         }

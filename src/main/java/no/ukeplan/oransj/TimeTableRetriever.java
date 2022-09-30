@@ -15,6 +15,6 @@ public class TimeTableRetriever {
 
     public static void main(String[] args) throws IOException {
         TimeTableRetriever timeTableRetriever = new TimeTableRetriever();
-        System.out.println(timeTableRetriever.getTimeTableForSubject("IDATA2302"));
+        //System.out.println(timeTableRetriever.getTimeTableForSubject("IDATA2302"));
     }
 }
