@@ -12,9 +12,15 @@
     
 </style>
 <body>
-    <h2 class="week--number">Week </h2>
+    <h2 class="week--number">Week 01</h2>
     <!-- TODO: Add week number to HTML -->
     <div class="timetable">
+
+        <!-- Notes: Every "cell" in the timetable grid is 8vh high,
+                    and cells execpt in the first row and first
+                    column has 4 sub-cells. There are 10 cells from
+                    hours 8 to 18, meaning there are a total of 44 rows-->
+
         <ul class="timetable__list--time">
             <li></li>
             <li>8</li>
@@ -30,11 +36,24 @@
             <!-- TODO: Add :before and :after to this for tick-marks -->
         </ul>
 
-        <ul class="timetable-day">
-            <li class="timetable-day__header">
-                <span class="timetable-day__name">Weekday</span>
-                <!-- TODO: JavaScript must add weekday and date. E.g.: Friday 16/09 inside timetable-day__name class -->
-            </li>
+        <span class="timetable-day__header">
+            <span class="timetable-day__name">Weekday 01/09</span>
+            <!-- TODO: JavaScript must add weekday and date. 
+                 E.g.: Friday 16/09 inside timetable-day__name class -->
+        </span>
+
+        <ul class="timetable-day--background">
+            <!-- 10 hours from 8 to 18 with 4 quarters each hour -->
+            <li></li><li></li><li></li><li></li> <!-- 1 -->
+            <li></li><li></li><li></li><li></li> <!-- 2 -->
+            <li></li><li></li><li></li><li></li> <!-- 3 -->
+            <li></li><li></li><li></li><li></li> <!-- 4 -->
+            <li></li><li></li><li></li><li></li> <!-- 5 -->
+            <li></li><li></li><li></li><li></li> <!-- 6 -->
+            <li></li><li></li><li></li><li></li> <!-- 7 -->
+            <li></li><li></li><li></li><li></li> <!-- 8 -->
+            <li></li><li></li><li></li><li></li> <!-- 9 -->
+            <li></li><li></li><li></li><li></li> <!-- 10 -->
         </ul>
     </div>
 </body>
