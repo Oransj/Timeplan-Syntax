@@ -137,4 +137,18 @@ ul.timetable__list--time li:not(:first-child):after {
     overflow: hidden;
     font-size: 0.75em;
 }
+
+.e1 {
+    grid-row: 6 / 13;
+    background: purple; 
+}
+
+.e3 {
+    grid-row: 14 / 21;
+    background: purple; 
+}
+
+.e2 {
+    grid-row: 30 / 37;
+    background: cadetblue;
 }
