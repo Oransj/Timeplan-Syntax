@@ -1,10 +1,17 @@
+/* TODO: Make pixel values into responsive values */
+
+/* VARIABLES */
 :root {
     /* Colours */
-    --clr-primary-1: white;
-    --clr-primary-2: #121212;
+    --clr-primary-1: 256, 256, 256;
+    --clr-primary-2: 12, 12, 12;
 
     /* Font families */
     --ff-primary: 'Verdana', sans-serif;
+
+    /* Size values */
+    --row-height: 2vh;
+    --cell-height: calc(4 * var(--row-height));
 }
 
 *, *:before, *:after {
@@ -15,15 +22,20 @@ html {
     display: flex;
 }
 
+/* Keep bottom margin */
+h2 {
+    margin: 0 0 1vw 0;
+}
+
 body {
     min-height: 100vh;
     width: 100vw;
     margin: 0;
-    padding: 0 5vw;
+    padding: 1vw;
 
-    background-color: var(--clr-primary-2);
-    color: var(--clr-primary-1);
-    font-family: var(--ff-primary)
+    background-color: rgb(var(--clr-primary-2));
+    color: rgb(var(--clr-primary-1));
+    font-family: var(--ff-primary);
 }
 
 .large-text {
@@ -35,14 +47,6 @@ body {
     text-align: center;
 }
 
-.timetable {
-    border: 3px solid var(--clr-primary-1);
-    display: grid;
-    min-height: 100vh;
-    padding: 5px;
-    margin: 0 0 20px 0;
-}
-
 ul {
     padding: 0;
     margin: 0;
@@ -50,4 +54,101 @@ ul {
 
 li {
     list-style: none;
+}
+
+.timetable {
+    border: 1px solid rgb(var(--clr-primary-1), 0.3);
+    display: grid;
+    grid-template-columns: 60px;
+    grid-template-rows: repeat(44, 1fr);
+}
+
+/* TODO: When body width < 180 px: remove sidebar times */
+
+.timetable-day__header {
+    height: var(--cell-height);
+    grid-column:  2 / 3;
+    grid-row: 1 / 5;
+
+    line-height: var(--cell-height);
+    text-align: center;
+    background: rgb(var(--clr-primary-1), 0.7);
+    color: rgb(var(--clr-primary-2));
+}
+
+.timetable__list--time {
+    grid-column: 1 / 2;
+    grid-row: 1 / 45;
+    padding-left: 10px;
+}
+
+.timetable__list--time li {
+    height: var(--cell-height); /* OG: 40px */
+    line-height: 0.5;
+    text-align: left;
+    margin-bottom: 0;
+    position: relative;
+    padding-left: 10px;
+}
+
+ul.timetable__list--time li:not(:first-child):before,
+ul.timetable__list--time li:not(:first-child):after {
+    content: '';
+    position: absolute;
+    border-bottom: 2px solid rgb(var(--clr-primary-1), 0.6);
+    right: 0;
+}
+
+ul.timetable__list--time li:not(:first-child):before {
+    top: calc(var(--cell-height) / 2 + 2px); /* OG: 19px */
+    width: 4px;
+}
+
+ul.timetable__list--time li:not(:first-child):after {
+    top: 2px; /* OG: -2px */
+    width: 8px;
+}
+
+.timetable-day--background {
+    height: calc(10 * var(--cell-height));
+    background: rgb(var(--clr-primary-1), 0);
+    overflow: hidden;
+    grid-column: 2 / 3;
+    grid-row: 5 / 45;
+    z-index: 0;
+}
+
+.timetable-day--background > li {
+    height: calc(var(--cell-height) / 4);
+}
+
+.timetable-day--background > li:nth-child(even) {
+    background: rgb(var(--clr-primary-1), 0.05);
+}
+
+/* Testing. Style should be set with JS */
+.timetable-day__event {
+    height: calc(7 * var(--row-height));
+    background: darkslategray; /* Array of colours. Assign array of subjects (alphabetical, asc) to the colours */
+    grid-column: 2 / 3;
+    z-index: 1;
+    border-radius: 1vw;
+    padding: 1vw;
+    overflow: hidden;
+    font-size: 0.75em;
+}
+
+.e1 {
+    grid-row: 6 / 13;
+    background: purple; 
+}
+
+.e3 {
+    grid-row: 14 / 21;
+    background: purple; 
+}
+
+.e2 {
+    grid-row: 30 / 37;
+    background: cadetblue;
 }

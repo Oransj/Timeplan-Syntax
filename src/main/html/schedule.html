@@ -12,30 +12,70 @@
     
 </style>
 <body>
-    <h1 class="week--number">Week </h1>
+    <h2 class="week--number">Week 01</h2>
     <!-- TODO: Add week number to HTML -->
     <div class="timetable">
-        <ul class="timatable-day">
-            <ul class="timatable__list timatable__list--time">
-                <li></li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
-                <li>11</li>
-                <li>12</li>
-                <li>13</li>
-                <li>14</li>
-                <li>15</li>
-                <li>16</li>
-                <li>17</li>
-            </ul>
 
-            <li class="timetable-day__header">
-                <span class="timetable-day__name"> </span>
-                <!-- TODO: JavaScript must add weekday and date. E.g.: Friday 16/09 inside timetable-day__name class -->
-            </li>
+        <!-- Notes: Every "cell" in the timetable grid is 8vh high,
+                    and cells execpt in the first row and first
+                    column has 4 sub-cells. There are 10 cells from
+                    hours 8 to 18, meaning there are a total of 44 rows-->
 
+        <ul class="timetable__list--time">
+            <li></li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <!-- TODO: Add :before and :after to this for tick-marks -->
         </ul>
+
+        <span class="timetable-day__header">
+            <span class="timetable-day__name">Weekday 01/09</span>
+            <!-- TODO: JavaScript must add weekday and date. 
+                 E.g.: Friday 16/09 inside timetable-day__name class -->
+        </span>
+
+        <ul class="timetable-day--background">
+            <!-- 10 hours from 8 to 18 with 4 quarters each hour -->
+            <li></li><li></li><li></li><li></li> <!-- 1 -->
+            <li></li><li></li><li></li><li></li> <!-- 2 -->
+            <li></li><li></li><li></li><li></li> <!-- 3 -->
+            <li></li><li></li><li></li><li></li> <!-- 4 -->
+            <li></li><li></li><li></li><li></li> <!-- 5 -->
+            <li></li><li></li><li></li><li></li> <!-- 6 -->
+            <li></li><li></li><li></li><li></li> <!-- 7 -->
+            <li></li><li></li><li></li><li></li> <!-- 8 -->
+            <li></li><li></li><li></li><li></li> <!-- 9 -->
+            <li></li><li></li><li></li><li></li> <!-- 10 -->
+        </ul>
+
+        <!-- Testing: Implement a JS insertion method -->
+        <div class="timetable-day__event e1">
+            <b>IDATA2302: Forelesning / Øving</b><br>
+            <u>AL-HO D410</u><br>
+            Franck Chauvel<br>
+            08:15 - 10:00
+        </div>
+        <div class="timetable-day__event e3">
+            <b>IDATA2302: Forelesning / Øving</b><br>
+            <u>AL-HO C220</u><br>
+            Franck Chauvel<br>
+            10:15 - 12:00
+        </div>
+        <div class="timetable-day__event e2">
+            <b>ISTA1003: Forelesning på campus. Hybrid forelesing for alle</b><br>
+            <u>AL-HO Kaupangen</u><br>
+            14:15 - 16:00<br>
+            S.B. Van Albada<br>
+            Digital undervisning Digital undervisning
+        </div>
     </div>
 </body>
 </html>
