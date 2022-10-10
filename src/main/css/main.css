@@ -22,7 +22,6 @@ html {
     display: flex;
 }
 
-/* Keep bottom margin */
 h2 {
     margin: 0 0 1vw 0;
 }
@@ -63,7 +62,7 @@ li {
     grid-template-rows: repeat(44, 1fr);
 }
 
-/* TODO: When body width < 180 px: remove sidebar times */
+/* TODO: When body-width < 180px: remove sidebar times */
 
 .timetable-day__header {
     height: var(--cell-height);
