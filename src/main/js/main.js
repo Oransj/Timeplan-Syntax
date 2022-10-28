@@ -71,14 +71,24 @@ increment number of lectures with 1 */
 of lectures in a time period to use in insertLecture method */
 
 function insertLecture(courseCode, title, building, room, lecturer, startTime, endTime) {
-    startTime = function();
-    endTime = function(); */
+    let startRow = getGridRowFromTime(startTime);
+    let endRow = getGridRowFromTime(endTime);
+
+    if (!courses.includes(courseCode)) {
+        courses.push(courseCode);
+    }
+
+    let courseIndex = courses.indexOf(courseCode);
+    if (courseIndex > color.length-1) {
+        courseIndex = courseIndex % color.length-1;
+    }
     
     timetable.innerHTML += `
-    <div class="timetable-day__event" style="grid-row: 38 / 45;
-    background: goldenrod">
+    <div class="timetable-day__event" style="grid-row: ${startRow} / ${endRow};
+    background: ${color[courseIndex % color.length]};
+    height: calc(${endRow-startRow} * var(--row-height))">
         <b>${courseCode}: ${title}</b><br>
-        <u>${building} ${room}</u><br>
+        <u>${building}: ${room}</u><br>
         ${lecturer}<br>
         ${startTime} - ${endTime}
     </div>`;
