@@ -127,8 +127,6 @@ ul.timetable__list-time li:not(:first-child):after {
 
 /* Testing. Style should be set with JS */
 .timetable-day__event {
-    height: calc(7 * var(--row-height));
-    background: darkslategray; /* Array of colours. Assign array of subjects (alphabetical, asc) to the colours */
     grid-column: 2 / 3;
     z-index: 1;
     border-radius: 1vw;
