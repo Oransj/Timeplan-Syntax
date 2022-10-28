@@ -49,6 +49,14 @@ function fillTimetableRow() {
     timetableRow.push(["18:00", row, 0]);
 }
 
+/* Get the integer value that's in the same nested array
+ * as the time value from the timetableRow array. */
+function getGridRowFromTime(time) {
+    let array = timetableRow.find(array => array[0] == time);
+
+    return array[1];
+}
+
 const timetable = document.querySelector(".timetable");
 const testBtn = document.querySelector("#testBtn");
 
