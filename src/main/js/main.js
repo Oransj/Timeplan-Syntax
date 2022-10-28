@@ -76,13 +76,15 @@ function insertLecture(courseCode, title, building, room, lecturer, startTime, e
     </div>`;
 }
 
-testBtn.addEventListener('click', () => {
-    insertLecture("ISTA1003", "Forelesning", "Ankeret", "C220", "Siebe Bruno Van Albada", "16:15", "18:00");  
-})
-
 window.onload = function() {
     /* Set up variable */
     fillTimetableRow();
     setWeekNumber();
     setWeekdayAndDate();
+
+    /* Insert lectures */
+    insertLecture("IDATA2302", "Forelesning / Øving", "Ankeret", "D410", "Franck Chauvel", "08:15", "10:00");
+    insertLecture("IDATA2302", "Forelesning / Øving", "Ankeret", "C220", "Franck Chauvel", "10:15", "12:00");
+    insertLecture("IDATA2303", "Forelesning / Øving", "Ankeret", "Borgundfjorden", "Di Wu", "12:15", "16:00");
+    insertLecture("ISTA1003", "Forelesning", "Ankeret", "C220", "Siebe Bruno Van Albada", "16:15", "18:00");
 }
