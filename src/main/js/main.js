@@ -1,4 +1,6 @@
-const color = ["#5f0e3f", "#114c5c", "800c11", "fa8a24", "260a03", "36bf98", "0e4028", "7d6563"];
+const color = ["#5f0e3f", "#114c5c", "#800c11", "#fa8a24", "#260a03", "#36bf98", "#0e4028", "#7d6563"];
+                // plum,   ocean,     scarlet,   pumpkin,   coffee,    turquoise, pine,      mocha
+var courses = [];
 
 var week = 1;
 var weekNumber = document.querySelector(".week--number");
@@ -17,8 +19,6 @@ function setWeekNumber() {
 var date = 1;
 var dateNumber = document.querySelector(".timetable-day__name");
 
-/* TODO: Function - Weekday and date
-* e.g. Monday 13. sep */
 function setWeekdayAndDate() {
     let day = ["Søndag", "Måndag", "Tysdag", "Onsdag", "Torsdag", "Fredag", "Laurdag"];
     let currentDate = new Date();
@@ -62,9 +62,7 @@ increment number of lectures with 1 */
 /* TODO: Function - Return an int of max numbers
 of lectures in a time period to use in insertLecture method */
 
-/* TODO: Insert a lecture bubble */
 function insertLecture(courseCode, title, building, room, lecturer, startTime, endTime) {
-    /* TODO: Make convert time to rownumber function
     startTime = function();
     endTime = function(); */
     
@@ -83,6 +81,7 @@ testBtn.addEventListener('click', () => {
 })
 
 window.onload = function() {
+    /* Set up variable */
     fillTimetableRow();
     setWeekNumber();
     setWeekdayAndDate();
